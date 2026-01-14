@@ -2,7 +2,7 @@ package dev.rowrain.plugin.api.better.rowrain;
 
 import com.hypixel.hytale.server.core.entity.entities.Player;
 
-public class PlayerMoveEvent {
+public final class PlayerMoveEvent {
 
     private final Player player;
     private final Location from;
