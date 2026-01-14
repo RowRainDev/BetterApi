@@ -1,2 +1,2 @@
 # BetterApi
-For Hytale Best Api
+For making Hytale Plugins easier.
