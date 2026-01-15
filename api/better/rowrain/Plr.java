@@ -49,15 +49,15 @@ public class Plr {
     }
 
     public static void sendTitle(Plr plr, String title, String subtitle, Boolean isMajor){//NEED TO FIX <this>
-        var player = plr.hyplr;
-        var ref = player.getReference();
-        plr.hyplr.getWorld().execute(() -> {
-            EventTitleUtil.showEventTitleToPlayer(
-                    <this>,
-                    Message.raw(title),
-                    Message.raw(subtitle),
-                    isMajor
-            );
-        });
+        //var player = plr.hyplr;
+        //var ref = player.getReference();
+        //plr.hyplr.getWorld().execute(() -> {
+        //    EventTitleUtil.showEventTitleToPlayer(
+        //            <this>,
+        //            Message.raw(title),
+        //            Message.raw(subtitle),
+        //            isMajor
+        //    );
+        //});
     }
 }
