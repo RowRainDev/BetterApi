@@ -3,10 +3,15 @@ package org.example.plugin.betterapi;
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.math.vector.Vector3d;
+import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
+import com.hypixel.hytale.server.core.entity.Entity;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
+import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.server.core.util.EventTitleUtil;
+import jdk.jfr.Event;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -34,12 +39,25 @@ public class Plr {
         try { location = future.get(); } catch (Exception e) { location = new Location(0, 0, 0, "none(error)"); }
     }
 
-    public static void moveTo(Plr plr, Location loc) {
+    public static void moveTo(Plr plr, Location loc) {//TODO : Make player move to another location with this (needs research)
         Player plrr = plr.hyplr;
         Ref<EntityStore> ref = plr.hyplr.getReference();
-        plrr.getWorld().execute(() ->{
-            TransformComponent transform = ref.getStore().getComponent(ref, TransformComponent.getComponentType());
-            transform.setPosition(new Vector3d(loc.x, loc.y, loc.z));
+    }
+
+    public static void sendMessage(Plr plr, String str) {
+        plr.hyplr.sendMessage(Message.raw(str));
+    }
+
+    public static void sendTitle(Plr plr, String title, String subtitle, Boolean isMajor){//NEED TO FIX <this>
+        var player = plr.hyplr;
+        var ref = player.getReference();
+        plr.hyplr.getWorld().execute(() -> {
+            EventTitleUtil.showEventTitleToPlayer(
+                    <this>,
+                    Message.raw(title),
+                    Message.raw(subtitle),
+                    isMajor
+            );
         });
     }
 }
