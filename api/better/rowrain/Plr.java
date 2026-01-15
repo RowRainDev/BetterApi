@@ -39,11 +39,6 @@ public class Plr {
         try { location = future.get(); } catch (Exception e) { location = new Location(0, 0, 0, "none(error)"); }
     }
 
-    public static void moveTo(Plr plr, Location loc) {//TODO : Make player move to another location with this (needs research)
-        Player plrr = plr.hyplr;
-        Ref<EntityStore> ref = plr.hyplr.getReference();
-    }
-
     public static void sendMessage(Plr plr, String str) {
         plr.hyplr.sendMessage(Message.raw(str));
     }
