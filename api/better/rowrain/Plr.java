@@ -48,7 +48,7 @@ public class Plr {
         plr.hyplr.sendMessage(Message.raw(str));
     }
 
-    public static void sendTitle(Plr plr, String title, String subtitle, Boolean isMajor){//NEED TO FIX <this>
+    //public static void sendTitle(Plr plr, String title, String subtitle, Boolean isMajor){//NEED TO FIX <this>
         //var player = plr.hyplr;
         //var ref = player.getReference();
         //plr.hyplr.getWorld().execute(() -> {
